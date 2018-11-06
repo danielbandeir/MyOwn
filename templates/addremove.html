@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<nav class=" cyan darken-4 container">
+        <div class="nav-wrapper">
+          <form method="GET" action='{{ url_for("search") }}'>
+            <div class="input-field">
+              <input id="buscar" type="text" name="buscar" required >
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+
+
+<div id="allCont">
+    <div class="pessoas">
+
+        <p>Solicitações</p>
+
+        {% if grupos %}
+            {%for grupo in grupos%}
+            <div class="row">
+                    <div class="col s2">
+                        <img src="{{ url_for('static', filename='img_perfil/'+grupo[4]) }}" class="circle">
+                    </div>
+                    <div class="col s4">
+                        <br>
+                        <a href="#">{{grupo[2]}}</a>
+                    </div>
+                    <form method="POST">
+                        <input type="hidden" name='idPessoa' id='idPessoa' value='{{grupo[0]}}'>
+                        <input type="submit" name = 'action'value="Aceitar" class="btn col s2 green">
+                        <input type="submit" name = 'action' value="Recusar" class="btn col s2 red">
+                    </form>
+                </div>
+            {%endfor%}
+        {% else %}
+            <p>Grupo não encontrada</p>
+        {% endif %}
+
+    </div>
+
+    <div class="grupos">
+
+        <p>Remover</p>
+
+
+        {% if dates %}
+            {%for date in dates%}
+            <div class="row">
+                    <div class="col s2">
+                        <img src="{{ url_for('static', filename='img_perfil/'+date[4]) }}" class="circle">
+                    </div>
+                    <div class="col s6">
+                        <br>
+                        <a href="#">{{date[2]}}</a>
+                    </div>
+                    <form method="POST">
+                        <input type="hidden" name='idPessoa2' id='idPessoa2' value='{{date[0]}}'>
+                        <input type="submit" name='action' value="Remover" class="btn col s3 red">
+                        <input type="hidden" name = 'action' value="Recusasar" class="btn col s2 red">
+                    </form>
+                </div>
+            {%endfor%}
+        {% else %}
+            <p>Grupo não encontrada</p>
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

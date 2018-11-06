@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="{{ url_for('static', filename='css/styleDashboard.css') }}" type="text/css" rel="stylesheet" media="screen, projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ url_for ('static', filename='css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+    {% include 'navDashboard.html' %}
+
+    <div id='contentAll'>
+
+        <div id='content1'>
+
+            <div id='contentAbout'>
+
+
+                <div class="image">
+
+                    <img src="{{ url_for('static', filename='img_perfil/'+dados[4]) }}" class="circle">
+                    
+                </div>
+
+
+                <div class="aboutText center">
+                    <p>{{ dados[2] }}</p>
+                    <a href="/conta ">Veja tudo</a><br>
+                    <a href="/criaGrupo">Criar Grupo</a>
+                </div>
+
+                
+                <div class="grupos">
+
+                        <div class="row">
+
+                                {% for grupo in grupos %}
+                                <div class="col s12 m6">
+                                        <div class="background">
+                                            <div class="fotoGrupo">
+                                                <img src="{{ url_for('static', filename='img_perfil/'+grupo[3]) }}">
+                                            </div>
+                                            <div class="titulo center">
+                                                <a href="#">{{grupo[1]}}</a></div>
+                                        </div>
+                                </div>
+                                {% endfor %}
+
+                                    
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {% include 'mural.html' %}
+    </div>
+
+
+
+
+  <!--  Scripts-->
+  <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/materialize.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/init.js')}}"></script>
+  <script>
+  
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+         
+  </script>
+</body>
+</html>

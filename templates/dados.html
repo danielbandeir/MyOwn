@@ -1,0 +1,47 @@
+{% for dado in dados %}
+
+<form method="POST" enctype=multipart/form-data class="center" action="/conta">
+    
+    <div class="row">
+        <div class="col s12 center">
+            <input type="text" value="{{dado[2]}}" name="nome" required>
+        </div>
+
+        <div class="col s12 center">
+                <input type="text" value={{dado[1]}} name="email" required>
+            </div>
+
+        <div class="col s6 center">
+                <input typ e="text" value={{dado[6]}} name="aniversario" required>
+            </div>
+
+        <div class="col s6 input-field center">
+                <select name="gender" id="gender">
+                    <option value="{{dado[7]}}" selected disabled>{{dado[7]}}</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+
+        <div class="col s6 center">
+                <input type="text" value={{dado[5]}} name="cidade" required>
+            </div>
+
+        <div class="col s6 center">
+                <input type="password" value={{dado[3]}} name="senha" required>
+            </div>
+
+        <div class="col s12 center">
+                <input type="text" value={{dado[8]}} name="visibilidade" required>
+            </div>
+
+    </div>
+
+    <div class="center">
+        <input type="file" name='file'>
+    </div>
+    <div class="p-t-20 center">
+        <button class="btn btn--radius btn--green" type="submit">Atualizar dados</button>
+    </div>
+</form>
+{% endfor %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="allContent">
+
+        {% for dado in dados %}
+
+        <div class="profile">
+
+            <img src="{{ url_for('static', filename='img_perfil/'+dado[4]) }}" class="circle">
+            <br>
+            <p class="center">{{dado[2]}}</p>
+            <a href='/mural/{{dado[0]}}' class="btn center">Ver mural</a>
+        </div>
+
+        <div class="contentProfile">
+
+
+            <div class="row">
+                <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s4"><a href="#test0">Dados</a></li>
+                    <li class="tab col s4"><a class="active" href="#test2">Amigos</a></li>
+                    <li class="tab col s4"><a href="#test3">Grupos</a></li>
+                </ul>
+                </div>
+                <div id="test0" class="col s12">{% include 'dados.html' %}</div>
+                <div id="test2" class="col s12">{% include 'friends.html' %}</div>
+                <div id="test3" class="col s12">{% include 'grupos.html' %}</div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

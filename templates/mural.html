@@ -1,0 +1,105 @@
+<div id='content2'>
+
+        <div class="allContent2">
+
+            <div class="row">
+                <a class="waves-effect waves-light btn modal-trigger col s12" href="#modal1">Postar</a>
+            </div>
+            
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                        <form method="POST">
+                            <div class="row">
+                                <input type="text" placeholder="Digite seu texto" name="postText" class="col s12">
+                                <input type="file" value="Mande uma imagem" name="postImage" class="col s12 ">
+                            </div>
+
+                            <div class="modal-footer">
+                                <input type="submit" value="Postar" name="post" class="col s6 btn">
+                            </div>
+                        </form>
+                </div>
+            </div>
+
+
+            {% for post in posts %}
+            {% for persons in pessoas %}
+            {% if post[1] == persons[0]%}
+            <div class="mural">
+
+                
+                <div class="row">
+                    <img src="{{ url_for('static', filename='img_perfil/'+persons[4]) }}" class="col s1 circle">
+                    <h5 class="col s11">{{ persons[2] }}</h5>
+                </div>
+
+                <div class="post">
+                    <p>{{ post[3] }}</p>
+                </div>
+            {%endif%}
+            {%endfor%}
+
+                        {% for comment in comments %}
+                        {% if comment[1] == post[0]%}
+                        {% for persons in pessoas %}
+                        {% if comment[3] == persons[0]%}
+                        <div class="coment">
+    
+                            <div class="row" >
+        
+                                    <img src="{{ url_for('static', filename='img_perfil/'+persons[4]) }}" class="col s1 circle">
+                                    <h5 class="col s11">{{ persons[2] }}</h5>
+                                    <div class="post">
+                                        <p>{{ comment[2] }}</p>
+                                    </div>        
+                                    <form method="POST">
+                                        <input type="hidden" name="idComent" value={{comment[0]}}>
+                                        <input type="submit" value="Remover" name="removerComent" class="col s2 btn red right">
+                                    </form>
+                                        
+                            </div>
+                            
+                            {% for resposta in respostas %}
+                            {% if resposta[1] == comment[0] %}
+                            {% for persons in pessoas %}
+                            {% if resposta[3] == persons[0]%}
+                            <div class="row" style='border: 1px solid grey;'>
+                                    <img src="{{ url_for('static', filename='img_perfil/'+persons[4]) }}" class="col s1 circle">
+                                    <h5 class="col s11">{{ persons[2] }}</h5>
+                                    <div class="post">
+                                        <p>{{ resposta[2] }}</p>
+                                    </div>    
+
+                            </div>
+                            {%endif%}
+                            {%endfor%}
+                            {%endif%}
+                            {%endfor%}
+                            {% endif %}
+                            {% endfor %}
+
+                            <form method="POST">
+                                    <input type="hidden" value="{{comment[0]}}" name="textCatch2">
+                                    <input type="text" placeholder="Digite sua resposta" class="col s4" name="textResp">
+                                    <input type="submit" value="Comentar" class="btn col s2 small">
+                                </form>   
+                        </div> 
+                        {% endif %}        
+                        {%endfor%}
+
+                            <form method="POST">
+                                <input type="hidden" value="{{post[3]}}" name="textCatch">
+                                <input type="text" placeholder="Digite seu comentário" class="col s4" name="textComent">
+                                <input type="submit" value="Comentar" class="btn col s2 small">
+                            </form>
+
+                    </div>
+
+
+                    {% endfor %}
+                    
+                </div>
+
+            </div>

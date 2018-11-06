@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="pessoas">
+
+    <p>Pessoas</p>
+
+    {%for person in pessoas%}
+    <div class="row">
+    <form class="center" action="" method="post">
+        <div class="col s2">
+            <img src="{{ url_for('static', filename='img_perfil/'+person[2]) }}" class="circle">
+        </div>
+        <div class="col s4">
+            <br>
+            <a href="{{ url_for('profile', id=person[0]) }}">{{person[1]}}</a>
+        </div>
+            <input type="hidden" name="idPessoa" value="{{person[0]}}">
+            <input type ="submit" name="action" value="Aceitar" class="btn green">   
+            <input type ="submit" name="action" value="Recusar" class="btn red ">   
+        </form>
+    </div>
+    {%endfor%}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<nav class=" cyan darken-4 container">
+        <div class="nav-wrapper">
+          <form method="GET" action='{{ url_for("search") }}'>
+            <div class="input-field">
+              <input id="buscar" type="text" name="buscar" required >
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+
+
+<div id="allCont">
+    <div class="pessoas">
+
+        <p>Pessoas</p>
+
+        {% if pessoas %}
+            {%for person in pessoas%}
+            <div class="row">
+                <div class="col s2">
+                    <img src="{{ url_for('static', filename='img_perfil/'+person[4]) }}" class="circle">
+                </div>
+                <div class="col s6">
+                    <br>
+                    <a href="{{ url_for('profile', id=person[0]) }}">{{person[2]}}</a>
+                </div>
+            </div>
+            {%endfor%}
+            {% else %}
+            <p>Pessoa não encontrada</p>
+        {% endif %}
+
+    </div>
+
+    <div class="grupos">
+
+        <p>Grupos</p>
+
+
+        {% if grupos %}
+            {%for grupo in grupos%}
+            <div class="row">
+                    <div class="col s2">
+                        <img src="{{ url_for('static', filename='img_perfil/'+grupo[3]) }}" class="circle">
+                    </div>
+                    <div class="col s6">
+                        <br>
+                        <a href="{{ url_for('gruposSee', id=grupo[0]) }}">{{grupo[1]}}</a>
+                    </div>
+                    <form method="POST" action="/search">
+                        <input type="hidden" name='idGrupo' id='idGrupo' value='{{grupo[0]}}'>
+                        <input type="submit" value="Entrar no grupo" class="btn col s3">
+                    </form>
+                </div>
+            {%endfor%}
+        {% else %}
+            <p>Grupo não encontrada</p>
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}
