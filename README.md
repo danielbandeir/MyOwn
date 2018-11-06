@@ -7,6 +7,33 @@ I tried to use MTV model, Model, Template and View, Flask to up the server and c
 
 # Install
 
+Packages:
+
+```
+asn1crypto==0.24.0
+backports.functools-lru-cache==1.5
+cryptography==2.1.4
+cycler==0.10.0
+enum34==1.1.6
+idna==2.6
+ipaddress==1.0.17
+keyring==10.6.0
+keyrings.alt==3.0
+kiwisolver==1.0.1
+matplotlib==2.2.3
+numpy==1.15.3
+pycrypto==2.6.1
+pygobject==3.26.1
+pyparsing==2.3.0
+python-dateutil==2.7.5
+pytz==2018.7
+pyxdg==0.25
+SecretStorage==2.3.1
+six==1.11.0
+subprocess32==3.5.3 
+
+```
+
 First of all you have to install virtualenv in your machine
 
 ```sudo apt-get install virtualenv```
