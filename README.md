@@ -85,3 +85,12 @@ Here is our virtual environment
 ## view
 
 Here we connect the routes with codesForDatabase to catch values to pass
+
+# To do
+
+- [x] Finish layouts
+- [x] Connect layouts with sqlite3
+- [x] create routes 
+- [ ] block friend
+- [ ] block group
+- [ ] Comment field group
