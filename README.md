@@ -14,3 +14,13 @@ After you have to active the virtualenv using:
 Now install the packages using pip:
 
 ```pip install -r requirements.txt```
+
+# Run server
+
+If you want the Debug mode in MyOwn, you have to do:
+
+``` export FLASK_ENV=development ```
+
+Run the server:
+
+```FLASK_APP=run.py flask run```
