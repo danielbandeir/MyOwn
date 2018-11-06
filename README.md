@@ -5,12 +5,12 @@ A social network developed using [Flask](http://flask.pocoo.org/), sqlite3 and [
 
 First of all you have to install virtualenv in your machine
 
-''' sudo apt-get install virtualenv '''
+```sudo apt-get install virtualenv```
 
 After you have to active the virtualenv using:
 
-''' source venv/bin/activate '''
+```source venv/bin/activate```
 
 Now install the packages using pip:
 
-''' pip install -r requirements.txt '''
+```pip install -r requirements.txt```
