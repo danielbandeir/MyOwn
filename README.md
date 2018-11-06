@@ -58,30 +58,30 @@ Run the server:
 
 # Description dirs
 
-codesForDatabase:
+## codesForDatabase
 
-``` In this dir we have all functions that go pass the variables to database ```
+In this dir we have all functions that go pass the variables to database
 
-database:
+## database
 
-``` Here we have the database of project ```
+Here we have the database of project ```
 
-model:
+## model
 
-``` In model we have the function that will go create the database and tables ```
+In model we have the function that will go create the database and tables
 
-static:
+## static
 
-``` Here is the dir that have style and scripts from CSS and JS ```
+Here is the dir that have style and scripts from CSS and JS
 
-templates:
+## templates
 
-``` All the web layout ```
+All the web layout
 
-venv:
+## venv
 
-``` Here is our virtual environment ```
+Here is our virtual environment
 
-view:
+## view
 
-``` Here we connect the routes with codesForDatabase to catch values to pass ```
+Here we connect the routes with codesForDatabase to catch values to pass
