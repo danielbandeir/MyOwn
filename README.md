@@ -3,7 +3,7 @@ A social network developed using [Flask](http://flask.pocoo.org/), sqlite3 and [
 
 # Description
 
-I tried to use MTV model, Model, Template and View, Flask to up the server and connect with jinja2, all the process to catch datas from database I used the sqlite3 native from Python, MyOwn is a social network based on material design, because of this I choose use the CSS framework Materialize.
+I tried to use MTV, Model, Template and View, Flask to up the server and connect with jinja2, all the process to catch datas from database I used the sqlite3 native from Python, MyOwn is a social network based on material design, because of this I choose use the CSS framework Materialize.
 
 # Install
 
@@ -55,3 +55,33 @@ If you want the Debug mode in MyOwn, you have to do:
 Run the server:
 
 ```FLASK_APP=run.py flask run```
+
+# Description dirs
+
+codesForDatabase:
+
+``` In this dir we have all functions that go pass the variables to database ```
+
+database:
+
+``` Here we have the database of project ```
+
+model:
+
+``` In model we have the function that will go create the database and tables ```
+
+static:
+
+``` Here is the dir that have style and scripts from CSS and JS ```
+
+templates:
+
+``` All the web layout ```
+
+venv:
+
+``` Here is our virtual environment ```
+
+view:
+
+``` Here we connect the routes with codesForDatabase to catch values to pass ```
